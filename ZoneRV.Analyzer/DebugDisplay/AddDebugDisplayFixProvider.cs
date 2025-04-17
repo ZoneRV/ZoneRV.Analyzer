@@ -95,12 +95,12 @@ public class AddDebugDisplayFixProvider : CodeFixProvider
         UsingDirectiveSyntax newUsing;
             
         if(addExtraLine)
-            newUsing =  SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System.Diagnostics")).NormalizeWhitespace()
+            newUsing =  SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System.Diagnostics"))
                 .WithTrailingTrivia(SyntaxFactory.ElasticCarriageReturnLineFeed)
                 .WithTrailingTrivia(SyntaxFactory.ElasticCarriageReturnLineFeed);
         
         else
-            newUsing = SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System.Diagnostics")).NormalizeWhitespace()
+            newUsing = SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System.Diagnostics"))
                 .WithTrailingTrivia(SyntaxFactory.CarriageReturnLineFeed);
 
         // Add the using directive to the syntax tree
