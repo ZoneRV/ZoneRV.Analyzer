@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoneRV.Analyzer.Tests", "ZoneRV.Analyzer.Tests\ZoneRV.Analyzer.Tests.csproj", "{6F6B614E-DB00-48D4-AA02-656ED3606ADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoneRV.Analyzer", "ZoneRV.Analyzer\ZoneRV.Analyzer.csproj", "{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F6B614E-DB00-48D4-AA02-656ED3606ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F6B614E-DB00-48D4-AA02-656ED3606ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F6B614E-DB00-48D4-AA02-656ED3606ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F6B614E-DB00-48D4-AA02-656ED3606ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
