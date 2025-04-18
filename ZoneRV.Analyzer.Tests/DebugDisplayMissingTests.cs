@@ -24,7 +24,7 @@ public class DebugDisplayMissingTests
             .WithMessageFormat("'{0}' should have a DebugDisplay")
             .WithArguments("Class1");
         
-        await Verifier.VerifyAnalyzerAsync(text, expected).ConfigureAwait(false);
+        await Verifier.VerifyAnalyzerAsync(text, expected);
     }
     
     [Fact]
@@ -43,6 +43,6 @@ public class DebugDisplayMissingTests
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithArguments("Class1");
         
-        await Verifier.VerifyAnalyzerAsync(text, expected).ConfigureAwait(false);
+        await Verifier.VerifyAnalyzerAsync(text, expected);
     }
 }

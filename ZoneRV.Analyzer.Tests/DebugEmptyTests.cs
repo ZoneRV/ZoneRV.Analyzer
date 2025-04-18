@@ -21,7 +21,7 @@ public class DebugEmptyTests
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat("Debug Display argument is invalid");
         
-        await Verifier.VerifyAnalyzerAsync(text, expected).ConfigureAwait(false);
+        await Verifier.VerifyAnalyzerAsync(text, expected);
     }
     
     [Fact]
@@ -35,7 +35,7 @@ public class DebugEmptyTests
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat("Debug Display argument is invalid");
         
-        await Verifier.VerifyAnalyzerAsync(text, expected).ConfigureAwait(false);
+        await Verifier.VerifyAnalyzerAsync(text, expected);
     }
     
     [Fact]
@@ -52,7 +52,7 @@ public class DebugEmptyTests
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat("Debug Display argument is invalid");
         
-        await Verifier.VerifyAnalyzerAsync(text, expected).ConfigureAwait(false);
+        await Verifier.VerifyAnalyzerAsync(text, expected);
     }
     
     [Fact]
@@ -69,7 +69,7 @@ public class DebugEmptyTests
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat("Debug Display argument is invalid");
         
-        await Verifier.VerifyAnalyzerAsync(text, expected).ConfigureAwait(false);
+        await Verifier.VerifyAnalyzerAsync(text, expected);
     }
     
     [Fact]
@@ -82,6 +82,6 @@ public class DebugEmptyTests
                                 public int Id { get; set; }
                             };";
         
-        await Verifier.VerifyAnalyzerAsync(text, []).ConfigureAwait(false);
+        await Verifier.VerifyAnalyzerAsync(text, []);
     }
 }
