@@ -96,7 +96,7 @@ public class AddDebugDisplayFixProvider : CodeFixProvider
             
         if(addExtraLine)
             newUsing =  SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System.Diagnostics"))
-                .WithTrailingTrivia(SyntaxFactory.ElasticCarriageReturnLineFeed)
+                .WithTrailingTrivia(SyntaxFactory.CarriageReturnLineFeed)
                 .WithTrailingTrivia(SyntaxFactory.ElasticCarriageReturnLineFeed);
         
         else
