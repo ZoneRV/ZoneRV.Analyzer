@@ -1,7 +1,5 @@
 on:
   push:
-    tags:
-      - v*
   
 jobs:
   build:
@@ -13,22 +11,19 @@ jobs:
         with:
           fetch-depth: 0
         
-      - name: Set VERSION variable from tag
-        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
-        
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
 
       - name: Build
-        run: dotnet build --configuration Release /p:Version=${VERSION}
+        run: dotnet build --configuration Release
         
       - name: Pack
-        run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
+        run: dotnet pack --configuration Release --no-build --output .
         
       - name: Run tests
-        run: dotnet test --configuration Release /p:Version=${VERSION} --no-build --no-build
+        run: dotnet test --configuration Release --no-build --no-build
           
       - name: Push
         run: dotnet nuget push **\*.nupkg --skip-duplicate -s 'https://nuget.pkg.github.com/ZoneRv/index.json' -k ${{ secrets.GIT_PACKAGE_API_KEY }}
