@@ -38,11 +38,13 @@ public class Bar
         
         var expected1 = new DiagnosticResult("ZRV0003", DiagnosticSeverity.Error)
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
-            .WithMessageFormat("'{0}' is not a valid property expression to create an optional field");
+            .WithMessageFormat("'{0}' is not a valid property expression to create an optional field")
+            .WithArguments("x => x.Cards.First().Checklists");
         
         var expected2 = new DiagnosticResult("ZRV0003", DiagnosticSeverity.Error)
             .WithLocation(1, DiagnosticLocationOptions.InterpretAsMarkupKey)
-            .WithMessageFormat("'{0}' is not a valid property expression to create an optional field");
+            .WithMessageFormat("'{0}' is not a valid property expression to create an optional field")
+            .WithArguments("x => x.Model.Line.Models.Last()");
         
         await new CSharpAnalyzerTest<InvalidOptionalFieldExpressionAnalyzer, XUnitVerifier>
             {
