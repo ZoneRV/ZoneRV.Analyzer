@@ -16,6 +16,9 @@ jobs:
         with:
           dotnet-version: 9.0.x
 
+      - name: Add internal nuget source
+        run: dotnet nuget add source 'https://nuget.pkg.github.com/ZoneRv/index.json' -n 'Zone Github' -u ${{ vars.OWNER_USERNAME}} -p ${{ secrets.GIT_PACKAGE_API_KEY }} --store-password-in-clear-text
+
       - name: Build
         run: dotnet build --configuration Release
         
