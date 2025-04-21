@@ -130,5 +130,32 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRV0002Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional fields cannot be created with complex expressions such as `card =&gt; card.Checklist.First().Checks` instead add the Checklist property seperately.
+        /// </summary>
+        internal static string ZRV0003Description {
+            get {
+                return ResourceManager.GetString("ZRV0003Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; is not a valid property expression to create an optional field.
+        /// </summary>
+        internal static string ZRV0003MessageFormat {
+            get {
+                return ResourceManager.GetString("ZRV0003MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional Field should be expressed as simple property Expressions.
+        /// </summary>
+        internal static string ZRV0003Title {
+            get {
+                return ResourceManager.GetString("ZRV0003Title", resourceCulture);
+            }
+        }
     }
 }

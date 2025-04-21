@@ -22,7 +22,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -38,6 +38,7 @@
             <Pack>True</Pack>
             <PackagePath>/</PackagePath>
         </None>
+        <PackageReference Include="xunit.extensibility.core" Version="2.9.3" />
     </ItemGroup>
 
     <ItemGroup>
