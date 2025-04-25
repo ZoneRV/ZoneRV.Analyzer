@@ -22,7 +22,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-        <Version>1.0.3</Version>
+        <Version>1.0.4</Version>
     </PropertyGroup>
 
     <ItemGroup>
