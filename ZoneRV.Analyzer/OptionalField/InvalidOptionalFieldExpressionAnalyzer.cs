@@ -65,7 +65,8 @@ public class InvalidOptionalFieldExpressionAnalyzer: DiagnosticAnalyzer
                 // Report a diagnostic at the location of the lambda body
                 context.ReportDiagnostic(Diagnostic.Create(
                     Rule,
-                    lambdaExpression.GetLocation()));
+                    lambdaExpression.GetLocation(),
+                    lambdaExpression.ToString()));
             }
         }
     }
