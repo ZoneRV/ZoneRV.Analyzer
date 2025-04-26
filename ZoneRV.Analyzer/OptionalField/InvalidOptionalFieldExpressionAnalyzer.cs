@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 namespace ZoneRV.Analyzer.OptionalField;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
-public class InvalidOptionalFieldExpressionAnalyzer: DiagnosticAnalyzer
+public class InvalidOptionalFieldExpressionAnalyzer : DiagnosticAnalyzer
 {
     private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(
         "ZRV0003",

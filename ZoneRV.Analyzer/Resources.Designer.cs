@@ -157,5 +157,14 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRV0003Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expression does not contain any properties with OptionalFieldAttribute and should be removed.
+        /// </summary>
+        internal static string ZRV0004 {
+            get {
+                return ResourceManager.GetString("ZRV0004", resourceCulture);
+            }
+        }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace ZoneRV.Analyzer;
@@ -32,5 +34,19 @@ public static class Utils
         }
 
         return namespaceName;
+    }
+    
+    public static bool HasAttribute(IPropertySymbol symbol, string attributeName)
+    {
+        foreach (var attribute in symbol.GetAttributes())
+        {
+            if (attribute.AttributeClass?.Name.Equals(attributeName, StringComparison.OrdinalIgnoreCase) == true ||
+                attribute.AttributeClass?.ToDisplayString().EndsWith(attributeName, StringComparison.OrdinalIgnoreCase) == true)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
