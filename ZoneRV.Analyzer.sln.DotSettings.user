@@ -1,8 +1,11 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ALocation_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FAppData_003FLocal_003FJetBrains_003FShared_003FvAny_003FSourcesCache_003F3a2dc2a95c7ace2c0ab7946592d27726c5f34dc67bba5a72184132efc9b220_003FLocation_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AObject_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FAppData_003FLocal_003FJetBrains_003FShared_003FvAny_003FSourcesCache_003F9a6b1457cbcf17db31a383ba49ef9bcc786cf3ef77146d997eee499b27a46d_003FObject_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ASyntaxNode_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FAppData_003FLocal_003FJetBrains_003FShared_003FvAny_003FSourcesCache_003F6fe3ba189cc3358c252f5cb9650691146c01bd48213b5455501af38e123a9d_003FSyntaxNode_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=23b1b12c_002Dc800_002D443a_002Da015_002Ddd0595683764/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;ZoneRV.Analyzer.Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFile&gt;6F6B614E-DB00-48D4-AA02-656ED3606ADF/f:OptionalFieldCollectionAnalyzerTests.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;Project Location="C:\Users\liamt\RiderProjects\ZoneRV.Analyzer\ZoneRV.Analyzer.Tests" Presentation="&amp;lt;ZoneRV.Analyzer.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=ZoneRV_002EAnalyzer_002FResources/@EntryIndexedValue">True</s:Boolean>
+	
 	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>

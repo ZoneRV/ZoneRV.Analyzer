@@ -54,20 +54,28 @@ public class InvalidOptionalFieldExpressionAnalyzer: DiagnosticAnalyzer
     {
         if (lambdaExpression.Body is ExpressionSyntax body)
         {
-            var decendants = body.DescendantNodes();
-            // Check the body and ensure there are no InvocationExpressions
-            var containsInvalidNodes = decendants
-                                            .OfType<ArgumentListSyntax>() // Find any method calls in the body
-                                            .Any();
+            var decendants = body.DescendantNodes().ToList();
 
-            if (containsInvalidNodes)
-            {
-                // Report a diagnostic at the location of the lambda body
-                context.ReportDiagnostic(Diagnostic.Create(
-                    Rule,
-                    lambdaExpression.GetLocation(),
-                    lambdaExpression.ToString()));
-            }
+            var nonArgumentNodes = decendants.TakeWhile(x => x is not ArgumentListSyntax).ToList();
+            
+            if(nonArgumentNodes.Count == decendants.Count)
+                return;
+
+            var methodNode = nonArgumentNodes.Last();
+            var invokingNode = decendants.SkipWhile(x => x is not ArgumentListSyntax).First();
+
+            Location location = Location.Create(
+                methodNode.SyntaxTree,
+                Microsoft.CodeAnalysis.Text.TextSpan.FromBounds(
+                    methodNode.SpanStart,
+                    invokingNode.Span.End
+                )
+            );
+            
+            context.ReportDiagnostic(Diagnostic.Create(
+                Rule,
+                location,
+                $"{methodNode}{invokingNode}"));
         }
     }
 }

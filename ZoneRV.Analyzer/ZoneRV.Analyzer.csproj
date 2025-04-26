@@ -26,6 +26,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <InternalsVisibleTo Include="ZoneRV.Analyzer.Tests" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -60,6 +64,10 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Remove="AnalyzerReleases.Shipped.md" />
     </ItemGroup>
 
 </Project>

@@ -49,6 +49,6 @@
         <value>Optional fields cannot be created with complex expressions such as `card =&gt; card.Checklist.First().Checks` instead add the Checklist property seperately</value>
     </data>
     <data name="ZRV0003MessageFormat" xml:space="preserve">
-        <value>'{0}' is not a valid property expression to create an optional field</value>
+        <value>'{0}' is an invalid expression, must use a simple non invoked expression to create an optional field</value>
     </data>
 </root>

@@ -141,7 +141,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; is not a valid property expression to create an optional field.
+        ///   Looks up a localized string similar to &apos;{0}&apos; is an invalid expression, must use a simple non invoked expression to create an optional field.
         /// </summary>
         internal static string ZRV0003MessageFormat {
             get {

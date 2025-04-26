@@ -10,6 +10,6 @@
 
 - Code fix for bad optional field expression
 - Warning on redundant Option field expression
-- Suggest abstract expression (ie if `RedCard` and `YellowCard` expression is same use `Card` instead) 
+- Suggest abstract expression (ie if `RedCard` and `YellowCard` expression is same use `Card` instead)
 - Suppress null error and warning for optional field expression
 - Warning for page sizes that exceed the max unloaded limit

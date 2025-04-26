@@ -30,28 +30,34 @@ public class Bar
         var options = new OptionalFieldCollection()
             .WithPropertiesFromType<SalesOrder>(
                             x => x.JobCards, 
-                            {|#0:x => x.Cards.First().Checklists|#0}, 
+                            x => x.Cards.{|#0:First()|#0}.Checklists, 
                             x => x.Stats, 
-                            {|#1:x => x.Model.Line.Models.Last()|#1});
+                            x => x.Model.Line.Models.{|#1:Last()|#1}, 
+                            x => x.Model.Line.Models.{|#2:Last(x => x.Id == 10)|#2});
     }
 }";
         
         var expected1 = new DiagnosticResult("ZRV0003", DiagnosticSeverity.Error)
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
-            .WithMessageFormat("'{0}' is not a valid property expression to create an optional field")
-            .WithArguments("x => x.Cards.First().Checklists");
+            .WithMessageFormat(Resources.ZRV0003MessageFormat)
+            .WithArguments("First()");
         
         var expected2 = new DiagnosticResult("ZRV0003", DiagnosticSeverity.Error)
             .WithLocation(1, DiagnosticLocationOptions.InterpretAsMarkupKey)
-            .WithMessageFormat("'{0}' is not a valid property expression to create an optional field")
-            .WithArguments("x => x.Model.Line.Models.Last()");
+            .WithMessageFormat(Resources.ZRV0003MessageFormat)
+            .WithArguments("Last()");
+        
+        var expected3 = new DiagnosticResult("ZRV0003", DiagnosticSeverity.Error)
+            .WithLocation(2, DiagnosticLocationOptions.InterpretAsMarkupKey)
+            .WithMessageFormat(Resources.ZRV0003MessageFormat)
+            .WithArguments("Last(x => x.Id == 10)");
         
         await new CSharpAnalyzerTest<InvalidOptionalFieldExpressionAnalyzer, XUnitVerifier>
             {
                 TestState =
                 {
                     Sources = { text  },
-                    ExpectedDiagnostics = { expected1, expected2 },
+                    ExpectedDiagnostics = { expected1, expected2, expected3 },
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(Card).Assembly.Location),
