@@ -16,7 +16,7 @@ public class UnnecessaryExpressionAnalyzer : DiagnosticAnalyzer
         Resources.ZRV0004,
         Resources.ZRV0004,
         category: "Usage",
-        DiagnosticSeverity.Hidden,
+        DiagnosticSeverity.Info,
         isEnabledByDefault: true,
         customTags: [WellKnownDiagnosticTags.Unnecessary]
     );
@@ -84,7 +84,7 @@ public class UnnecessaryExpressionAnalyzer : DiagnosticAnalyzer
 
             else
             {
-                var parent = lastNode.Parent as MemberAccessExpressionSyntax;
+                var parent = nodes.Last().Parent as MemberAccessExpressionSyntax;
                 
                 var start = nodes.Last().SpanStart;
                 var end = lastNode.Span.End;
