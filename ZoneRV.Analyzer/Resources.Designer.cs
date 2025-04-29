@@ -166,5 +166,14 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRV0004", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trailing Properties on extression do not contain any properties with OptionalFieldAttribute and should be removed.
+        /// </summary>
+        internal static string ZRV0005 {
+            get {
+                return ResourceManager.GetString("ZRV0005", resourceCulture);
+            }
+        }
     }
 }

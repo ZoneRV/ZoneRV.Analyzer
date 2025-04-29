@@ -75,11 +75,11 @@ public class Bar
     }
 }";
         
-        var expected1 = new DiagnosticResult("ZRV0004", DiagnosticSeverity.Info)
+        var expected1 = new DiagnosticResult("ZRV0004", DiagnosticSeverity.Warning)
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat(Resources.ZRV0004);
         
-        var expected2 = new DiagnosticResult("ZRV0004", DiagnosticSeverity.Info)
+        var expected2 = new DiagnosticResult("ZRV0004", DiagnosticSeverity.Warning)
             .WithLocation(1, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat(Resources.ZRV0004);
         
@@ -121,13 +121,13 @@ public class Bar
     }
 }";
         
-        var expected1 = new DiagnosticResult("ZRV0004", DiagnosticSeverity.Info)
+        var expected1 = new DiagnosticResult("ZRV0005", DiagnosticSeverity.Warning)
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
-            .WithMessageFormat(Resources.ZRV0004);
+            .WithMessageFormat(Resources.ZRV0005);
         
-        var expected2 = new DiagnosticResult("ZRV0004", DiagnosticSeverity.Info)
+        var expected2 = new DiagnosticResult("ZRV0005", DiagnosticSeverity.Warning)
             .WithLocation(1, DiagnosticLocationOptions.InterpretAsMarkupKey)
-            .WithMessageFormat(Resources.ZRV0004);
+            .WithMessageFormat(Resources.ZRV0005);
         
         await new CSharpAnalyzerTest<UnnecessaryExpressionAnalyzer, XUnitVerifier>
             {
