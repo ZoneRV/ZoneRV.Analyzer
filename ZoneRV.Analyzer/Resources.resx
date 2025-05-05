@@ -54,4 +54,13 @@
     <data name="ZRV0004" xml:space="preserve">
         <value>Expression does not contain any properties with OptionalFieldAttribute and should be removed</value>
     </data>
+    <data name="ZRV0006Title" xml:space="preserve">
+        <value>Inconsistent Naming</value>
+    </data>
+    <data name="ZRV0006MessageFormat" xml:space="preserve">
+        <value>'{0}' objects should not cointain '{1}' in their name</value>
+    </data>
+    <data name="ZRV0006Description" xml:space="preserve">
+        <value>Variable names should follow set naming conventions based on their class type.</value>
+    </data>
 </root>

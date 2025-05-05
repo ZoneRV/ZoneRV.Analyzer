@@ -166,5 +166,32 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRV0004", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable names should follow set naming conventions based on their class type..
+        /// </summary>
+        internal static string ZRV0006Description {
+            get {
+                return ResourceManager.GetString("ZRV0006Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; objects should not cointain &apos;{1}&apos; in their name.
+        /// </summary>
+        internal static string ZRV0006MessageFormat {
+            get {
+                return ResourceManager.GetString("ZRV0006MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inconsistent Naming.
+        /// </summary>
+        internal static string ZRV0006Title {
+            get {
+                return ResourceManager.GetString("ZRV0006Title", resourceCulture);
+            }
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing;
@@ -8,9 +6,6 @@ using Microsoft.CodeAnalysis.Testing.Verifiers;
 using Xunit;
 using ZoneRV.Analyzer.OptionalField;
 using ZoneRV.Client.Models;
-using ZoneRV.Core.Attributes;
-using ZoneRV.Core.Models.Location;
-using ZoneRV.Core.Models.Production;
 using ZoneRV.Core.Models.Sales;
 
 namespace ZoneRV.Analyzer.Tests;
