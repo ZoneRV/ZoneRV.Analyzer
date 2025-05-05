@@ -54,6 +54,9 @@
     <data name="ZRV0004" xml:space="preserve">
         <value>Expression does not contain any properties with OptionalFieldAttribute and should be removed</value>
     </data>
+    <data name="ZRV0005" xml:space="preserve">
+        <value>Trailing Properties on extression do not contain any properties with OptionalFieldAttribute and should be removed</value>
+    </data>
     <data name="ZRV0006Title" xml:space="preserve">
         <value>Inconsistent Naming</value>
     </data>

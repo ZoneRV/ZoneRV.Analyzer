@@ -11,17 +11,27 @@ namespace ZoneRV.Analyzer.OptionalField;
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class UnnecessaryExpressionAnalyzer : DiagnosticAnalyzer
 {
-    private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(
+    private static readonly DiagnosticDescriptor RuleFull = new DiagnosticDescriptor(
         "ZRV0004",
         Resources.ZRV0004,
         Resources.ZRV0004,
         category: "Usage",
-        DiagnosticSeverity.Info,
+        DiagnosticSeverity.Warning,
+        isEnabledByDefault: true,
+        customTags: [WellKnownDiagnosticTags.Unnecessary]
+    );
+    
+    private static readonly DiagnosticDescriptor RuleTrailing = new DiagnosticDescriptor(
+        "ZRV0005",
+        Resources.ZRV0005,
+        Resources.ZRV0005,
+        category: "Usage",
+        DiagnosticSeverity.Warning,
         isEnabledByDefault: true,
         customTags: [WellKnownDiagnosticTags.Unnecessary]
     );
 
-    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } = ImmutableArray.Create(Rule);
+    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } = [RuleFull, RuleTrailing];
     
     public override void Initialize(AnalysisContext context)
     {
@@ -78,10 +88,14 @@ public class UnnecessaryExpressionAnalyzer : DiagnosticAnalyzer
             }
 
             Location location;
+            bool     isFullExpression = false;
             
             if(nodes.Count == decendants.Count)
-                location = lambdaExpression.GetLocation();
-
+            {
+                isFullExpression = true;
+                location         = lambdaExpression.GetLocation();
+            }
+            
             else
             {
                 var parent = nodes.Last().Parent as MemberAccessExpressionSyntax;
@@ -100,8 +114,12 @@ public class UnnecessaryExpressionAnalyzer : DiagnosticAnalyzer
                     Microsoft.CodeAnalysis.Text.TextSpan.FromBounds(start, end)
                 );
             }
+
+            if (isFullExpression)
+                context.ReportDiagnostic(Diagnostic.Create(RuleFull, location));
             
-            context.ReportDiagnostic(Diagnostic.Create(Rule, location));
+            else
+                context.ReportDiagnostic(Diagnostic.Create(RuleTrailing, location));
         }
     }
 }
