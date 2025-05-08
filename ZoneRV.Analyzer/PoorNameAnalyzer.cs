@@ -42,7 +42,12 @@ public class PoorNameAnalyzer : DiagnosticAnalyzer
     {
         context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
         context.EnableConcurrentExecution();
+        
         context.RegisterSyntaxNodeAction(AnalyzeVariableDeclaration, SyntaxKind.VariableDeclarator);
+        
+        context.RegisterSyntaxNodeAction(AnalyzeMemberDeclaration, SyntaxKind.PropertyDeclaration);
+        context.RegisterSyntaxNodeAction(AnalyzeMemberDeclaration, SyntaxKind.FieldDeclaration);
+
     }
 
     private void AnalyzeVariableDeclaration(SyntaxNodeAnalysisContext context)
@@ -71,6 +76,41 @@ public class PoorNameAnalyzer : DiagnosticAnalyzer
             }
         }
     }
+    
+    private void AnalyzeMemberDeclaration(SyntaxNodeAnalysisContext context)
+    {
+        string? memberName = null;
+        string? className  = null;
+
+        Location location;
+
+        switch (context.Node) 
+        {
+            case PropertyDeclarationSyntax propertyDeclaration:
+                memberName = propertyDeclaration.Identifier.Text;
+                location   = propertyDeclaration.Identifier.GetLocation();
+                className  = context.SemanticModel.GetTypeInfo(propertyDeclaration.Type).Type?.Name;
+                break;
+
+            default:
+                return;
+        }
+
+        if (memberName is null || className is null) return;
+
+        if (ClassBlacklistedVariableNameRules.TryGetValue(className, out var blacklistedNames))
+        {
+            var badName = GetBlacklistedName(memberName, blacklistedNames);
+            
+            if (badName is not null)
+            {
+                var diagnostic = Diagnostic.Create(Rule, location, className, memberName);
+
+                context.ReportDiagnostic(diagnostic);
+            }
+        }
+    }
+
 
     private string? GetBlacklistedName(string variableName, string[] blacklistedNames)
     {
