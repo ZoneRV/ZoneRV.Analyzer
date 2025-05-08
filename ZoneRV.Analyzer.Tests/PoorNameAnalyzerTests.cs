@@ -50,6 +50,48 @@ public class TestClass
     }
     
     [Fact]
+    public async Task CheckMethodParameterNames()
+    {
+        const string text = @"
+public class SalesOrderRequestOptions { }
+
+public class TestClass
+{
+    void TestMethod(SalesOrderRequestOptions requestOptions)
+    {
+        return;
+    }
+
+    void TestMethod1(SalesOrderRequestOptions {|#0:filterOptions|#0})
+    {
+        return;
+    }
+}";
+        
+        var expected = new DiagnosticResult("ZRV0006", DiagnosticSeverity.Warning)
+            .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
+            .WithMessageFormat(Resources.ZRV0006MessageFormat)
+            .WithArguments("SalesOrderRequestOptions", "filterOptions");
+
+        await new CSharpAnalyzerTest<PoorNameAnalyzer, XUnitVerifier>
+            {
+                TestState =
+                {
+                    Sources = { text },
+                    ExpectedDiagnostics = { expected },
+                    AdditionalReferences =
+                    {
+                        MetadataReference.CreateFromFile(typeof(SalesOrder).Assembly.Location),
+                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                    },
+                    
+                    ReferenceAssemblies = ReferenceAssemblies.Net.Net90
+                }
+            }
+            .RunAsync();
+    }
+    
+    [Fact]
     public async Task CheckMemberNames()
     {
         const string text = @"

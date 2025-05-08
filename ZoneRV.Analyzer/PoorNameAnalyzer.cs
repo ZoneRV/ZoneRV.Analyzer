@@ -44,10 +44,9 @@ public class PoorNameAnalyzer : DiagnosticAnalyzer
         context.EnableConcurrentExecution();
         
         context.RegisterSyntaxNodeAction(AnalyzeVariableDeclaration, SyntaxKind.VariableDeclarator);
-        
         context.RegisterSyntaxNodeAction(AnalyzeMemberDeclaration, SyntaxKind.PropertyDeclaration);
         context.RegisterSyntaxNodeAction(AnalyzeMemberDeclaration, SyntaxKind.FieldDeclaration);
-
+        context.RegisterSyntaxNodeAction(AnalyzeMemberDeclaration, SyntaxKind.Parameter);
     }
 
     private void AnalyzeVariableDeclaration(SyntaxNodeAnalysisContext context)
@@ -90,6 +89,16 @@ public class PoorNameAnalyzer : DiagnosticAnalyzer
                 memberName = propertyDeclaration.Identifier.Text;
                 location   = propertyDeclaration.Identifier.GetLocation();
                 className  = context.SemanticModel.GetTypeInfo(propertyDeclaration.Type).Type?.Name;
+                break;
+            
+            case ParameterSyntax parameterSyntax:
+                memberName = parameterSyntax.Identifier.Text;
+                location   = parameterSyntax.Identifier.GetLocation();
+                
+                if(parameterSyntax.Type is null)
+                    return;
+                
+                className  = context.SemanticModel.GetTypeInfo(parameterSyntax.Type).Type?.Name;
                 break;
 
             default:
