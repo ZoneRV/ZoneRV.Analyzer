@@ -29,7 +29,7 @@ public class TestClass
         var expected = new DiagnosticResult("ZRV0006", DiagnosticSeverity.Warning)
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat(Resources.ZRV0006MessageFormat)
-            .WithArguments("SalesOrderRequestOptions", "filterOptions");
+            .WithArguments("SalesOrderRequestOptions", "filter");
 
         await new CSharpAnalyzerTest<PoorNameAnalyzer, XUnitVerifier>
             {
@@ -71,7 +71,7 @@ public class TestClass
         var expected = new DiagnosticResult("ZRV0006", DiagnosticSeverity.Warning)
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat(Resources.ZRV0006MessageFormat)
-            .WithArguments("SalesOrderRequestOptions", "filterOptions");
+            .WithArguments("SalesOrderRequestOptions", "filter");
 
         await new CSharpAnalyzerTest<PoorNameAnalyzer, XUnitVerifier>
             {
@@ -115,22 +115,22 @@ public class TestClass
         var expected = new DiagnosticResult("ZRV0006", DiagnosticSeverity.Warning)
             .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat(Resources.ZRV0006MessageFormat)
-            .WithArguments("SalesOrderRequestOptions", "filterOptions");
+            .WithArguments("SalesOrderRequestOptions", "filter");
         
         var expected2 = new DiagnosticResult("ZRV0006", DiagnosticSeverity.Warning)
             .WithLocation(1, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat(Resources.ZRV0006MessageFormat)
-            .WithArguments("SalesOrderRequestOptions", "filterOptions1");
+            .WithArguments("SalesOrderRequestOptions", "filter");
         
         var expected3 = new DiagnosticResult("ZRV0006", DiagnosticSeverity.Warning)
             .WithLocation(2, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat(Resources.ZRV0006MessageFormat)
-            .WithArguments("SalesOrderRequestOptions", "filterOptions2");
+            .WithArguments("SalesOrderRequestOptions", "filter");
         
         var expected4 = new DiagnosticResult("ZRV0006", DiagnosticSeverity.Warning)
             .WithLocation(3, DiagnosticLocationOptions.InterpretAsMarkupKey)
             .WithMessageFormat(Resources.ZRV0006MessageFormat)
-            .WithArguments("SalesOrderRequestOptions", "filterOptions3");
+            .WithArguments("SalesOrderRequestOptions", "filter");
 
         await new CSharpAnalyzerTest<PoorNameAnalyzer, XUnitVerifier>
             {

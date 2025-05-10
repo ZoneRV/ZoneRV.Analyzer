@@ -20,8 +20,8 @@ public class PoorNameAnalyzer : DiagnosticAnalyzer
                 new KeyValuePair<string, string[]>("CardRequestOptions", ["filter", "sort"]),
                 new KeyValuePair<string, string[]>("LocationInfo", ["pos"]),
                 new KeyValuePair<string, string[]>("LocationMove", ["pos"]),
-                new KeyValuePair<string, string[]>("OrderedLineLocation", ["pos"]),
-                new KeyValuePair<string, string[]>("WorkspaceLocation", ["pos"]),
+                new KeyValuePair<string, string[]>("OrderedLineLocation", ["position", "pos"]),
+                new KeyValuePair<string, string[]>("WorkspaceLocation", ["position", "pos"]),
                 new KeyValuePair<string, string[]>("SalesOrder", ["van"]),
                 new KeyValuePair<string, string[]>("ProHoStatus", ["redline"]),
             ]
@@ -69,7 +69,7 @@ public class PoorNameAnalyzer : DiagnosticAnalyzer
             
             if (badName is not null)
             {
-                var diagnostic = Diagnostic.Create(Rule, variableDeclarator.Identifier.GetLocation(), className, variableName);
+                var diagnostic = Diagnostic.Create(Rule, variableDeclarator.Identifier.GetLocation(), className, badName);
 
                 context.ReportDiagnostic(diagnostic);
             }
@@ -113,7 +113,7 @@ public class PoorNameAnalyzer : DiagnosticAnalyzer
             
             if (badName is not null)
             {
-                var diagnostic = Diagnostic.Create(Rule, location, className, memberName);
+                var diagnostic = Diagnostic.Create(Rule, location, className, badName);
 
                 context.ReportDiagnostic(diagnostic);
             }
