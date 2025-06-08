@@ -202,5 +202,23 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRV0006Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; should not be used in DebugDisplay as it is optional.
+        /// </summary>
+        internal static string ZRV0007MessageFormat {
+            get {
+                return ResourceManager.GetString("ZRV0007MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot use optional fields in DebugDisplay.
+        /// </summary>
+        internal static string ZRV0007Title {
+            get {
+                return ResourceManager.GetString("ZRV0007Title", resourceCulture);
+            }
+        }
     }
 }

@@ -12,8 +12,8 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.XUnit" Version="1.1.2" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
         <PackageReference Include="xunit" Version="2.4.2" />
-        <PackageReference Include="ZoneRV.Client" Version="0.13.7" />
-        <PackageReference Include="ZoneRV.Core" Version="0.13.7" />
+        <PackageReference Include="ZoneRV.Client" Version="1.1.0" />
+        <PackageReference Include="ZoneRV.Core" Version="1.1.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
