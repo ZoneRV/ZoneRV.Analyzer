@@ -27,7 +27,7 @@ public class Bar
 {
     public void Main()
     {
-        var options = new OptionalFieldCollection()
+        var options = new OptionalPropertyCollection()
             .WithPropertiesFromType<SalesOrder>(
                             x => x.JobCards, 
                             x => x.Cards.{|#0:First()|#0}.Checklists, 
@@ -61,7 +61,7 @@ public class Bar
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(Card).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
                     },
                     
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90
@@ -84,7 +84,7 @@ public class Bar
 {
     public void Main()
     {
-        var options = new OptionalFieldCollection().WithPropertiesFromType<SalesOrder>(x => x.LocationInfo.CurrentLocation.Location, x => x.JobCards);
+        var options = new OptionalPropertyCollection().WithPropertiesFromType<SalesOrder>(x => x.LocationInfo.CurrentLocation.Location, x => x.JobCards);
     }
 }";
         
@@ -92,12 +92,12 @@ public class Bar
             {
                 TestState =
                 {
-                    Sources = { text  },
+                    Sources = { text },
                     ExpectedDiagnostics = { },
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(Card).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
                     },
                     
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90

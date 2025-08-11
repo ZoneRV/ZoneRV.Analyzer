@@ -43,19 +43,19 @@
         <value>Debug Display value is invalid</value>
     </data>
     <data name="ZRV0003Title" xml:space="preserve">
-        <value>Optional Field should be expressed as simple property Expressions</value>
+        <value>Optional property should be expressed as simple property Expressions</value>
     </data>
     <data name="ZRV0003Description" xml:space="preserve">
-        <value>Optional fields cannot be created with complex expressions such as `card =&gt; card.Checklist.First().Checks` instead add the Checklist property seperately</value>
+        <value>Optional properties cannot be created with complex expressions such as `card =&gt; card.Checklist.First().Checks` instead add the Checklist property seperately</value>
     </data>
     <data name="ZRV0003MessageFormat" xml:space="preserve">
-        <value>'{0}' is an invalid expression, must use a simple non invoked expression to create an optional field</value>
+        <value>'{0}' is an invalid expression, must use a simple non invoked expression to create an optional property</value>
     </data>
     <data name="ZRV0004" xml:space="preserve">
-        <value>Expression does not contain any properties with OptionalFieldAttribute and should be removed</value>
+        <value>Expression does not contain any properties with OptionalPropertyAttribute and should be removed</value>
     </data>
     <data name="ZRV0005" xml:space="preserve">
-        <value>Trailing Properties on extression do not contain any properties with OptionalFieldAttribute and should be removed</value>
+        <value>Trailing Properties on extression do not contain any properties with OptionalPropertyAttribute and should be removed</value>
     </data>
     <data name="ZRV0006Title" xml:space="preserve">
         <value>Inconsistent Naming</value>
@@ -67,7 +67,7 @@
         <value>Variable names should follow set naming conventions based on their class type.</value>
     </data>
     <data name="ZRV0007Title" xml:space="preserve">
-        <value>Cannot use optional fields in DebugDisplay</value>
+        <value>Cannot use optional properties in DebugDisplay</value>
     </data>
     <data name="ZRV0007MessageFormat" xml:space="preserve">
         <value>'{0}' should not be used in DebugDisplay as it is optional</value>

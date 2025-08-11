@@ -70,7 +70,7 @@ public class UnnecessaryExpressionAnalyzer : DiagnosticAnalyzer
 
             var lastSymbol = context.SemanticModel.GetSymbolInfo(lastNode, context.CancellationToken).Symbol;
             
-            if(lastSymbol is IPropertySymbol lastPropertySymbol && Utils.HasAttribute(lastPropertySymbol, "OptionalJsonFieldAttribute"))
+            if(lastSymbol is IPropertySymbol lastPropertySymbol && Utils.HasAttribute(lastPropertySymbol, "OptionalPropertyAttribute"))
                 return;
             
             nodes.Add(lastNode);
@@ -79,7 +79,7 @@ public class UnnecessaryExpressionAnalyzer : DiagnosticAnalyzer
             {
                 var symbol = context.SemanticModel.GetSymbolInfo(node, context.CancellationToken).Symbol;
                 
-                if (symbol is not IPropertySymbol propertySymbol || !Utils.HasAttribute(propertySymbol, "OptionalJsonFieldAttribute"))
+                if (symbol is not IPropertySymbol propertySymbol || !Utils.HasAttribute(propertySymbol, "OptionalPropertyAttribute"))
                 {
                     nodes.Add(node);
                 }

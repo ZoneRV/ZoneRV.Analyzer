@@ -27,7 +27,7 @@ public class Bar
 {
     public void Main()
     {
-        var options = new OptionalFieldCollection()
+        var options = new OptionalPropertyCollection()
             .WithPropertiesFromType<SalesOrder>(x => x.Stats, x => x.Model.Line, x => x.LocationInfo.CurrentLocation.Location);
     }
 }";
@@ -41,7 +41,7 @@ public class Bar
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(SalesOrder).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
                     },
                     
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90
@@ -65,7 +65,7 @@ public class Bar
 {
     public void Main()
     {
-        var options = new OptionalFieldCollection()
+        var options = new OptionalPropertyCollection()
             .WithPropertiesFromType<SalesOrder>({|#0:x => x.Id|#0}, x => x.Stats, {|#1:x => x.Model.Id|#1});
     }
 }";
@@ -87,7 +87,7 @@ public class Bar
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(SalesOrder).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
                     },
                     
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90
@@ -111,7 +111,7 @@ public class Bar
 {
     public void Main()
     {
-        var options = new OptionalFieldCollection()
+        var options = new OptionalPropertyCollection()
             .WithPropertiesFromType<SalesOrder>(x => x.Model.Line{|#0:.Id|#0}, x => x.LocationInfo.CurrentLocation.Location{|#1:.Name.Length|#1});
     }
 }";
@@ -133,7 +133,7 @@ public class Bar
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(SalesOrder).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
                     },
                     
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90

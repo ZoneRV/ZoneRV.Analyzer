@@ -132,7 +132,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional fields cannot be created with complex expressions such as `card =&gt; card.Checklist.First().Checks` instead add the Checklist property seperately.
+        ///   Looks up a localized string similar to Optional properties cannot be created with complex expressions such as `card =&gt; card.Checklist.First().Checks` instead add the Checklist property seperately.
         /// </summary>
         internal static string ZRV0003Description {
             get {
@@ -141,7 +141,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; is an invalid expression, must use a simple non invoked expression to create an optional field.
+        ///   Looks up a localized string similar to &apos;{0}&apos; is an invalid expression, must use a simple non invoked expression to create an optional property.
         /// </summary>
         internal static string ZRV0003MessageFormat {
             get {
@@ -150,7 +150,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional Field should be expressed as simple property Expressions.
+        ///   Looks up a localized string similar to Optional property should be expressed as simple property Expressions.
         /// </summary>
         internal static string ZRV0003Title {
             get {
@@ -159,7 +159,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expression does not contain any properties with OptionalFieldAttribute and should be removed.
+        ///   Looks up a localized string similar to Expression does not contain any properties with OptionalPropertyAttribute and should be removed.
         /// </summary>
         internal static string ZRV0004 {
             get {
@@ -168,7 +168,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trailing Properties on extression do not contain any properties with OptionalFieldAttribute and should be removed.
+        ///   Looks up a localized string similar to Trailing Properties on extression do not contain any properties with OptionalPropertyAttribute and should be removed.
         /// </summary>
         internal static string ZRV0005 {
             get {
@@ -213,7 +213,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot use optional fields in DebugDisplay.
+        ///   Looks up a localized string similar to Cannot use optional properties in DebugDisplay.
         /// </summary>
         internal static string ZRV0007Title {
             get {

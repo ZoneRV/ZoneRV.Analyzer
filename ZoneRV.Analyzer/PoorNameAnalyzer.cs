@@ -24,6 +24,8 @@ public class PoorNameAnalyzer : DiagnosticAnalyzer
                 new KeyValuePair<string, string[]>("WorkspaceLocation", ["position", "pos"]),
                 new KeyValuePair<string, string[]>("SalesOrder", ["van"]),
                 new KeyValuePair<string, string[]>("ProHoStatus", ["redline"]),
+                new KeyValuePair<string, string[]>("OptionalPropertyCollection", ["field"]),
+                new KeyValuePair<string, string[]>("OptionalProperty", ["field"]),
             ]
         );
 

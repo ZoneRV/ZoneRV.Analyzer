@@ -40,7 +40,7 @@ public class TestClass
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(SalesOrder).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
                     },
                     
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90
@@ -82,7 +82,7 @@ public class TestClass
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(SalesOrder).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
                     },
                     
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90
@@ -141,7 +141,7 @@ public class TestClass
                     AdditionalReferences =
                     {
                         MetadataReference.CreateFromFile(typeof(SalesOrder).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(OptionalFieldCollection).Assembly.Location)
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
                     },
                     
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90

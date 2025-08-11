@@ -24,7 +24,7 @@ namespace ZoneRV.Analyzer.Tests.OptionalFields;
 [DebuggerDisplay("{Id2} {{|#0:Id|#0}} {Id2}")]
 public class Class1
 {
-    [OptionalJsonField("")]
+    [OptionalProperty]
     public string Id { get; set; }
 
     public string Id2 { get; set; }
@@ -39,7 +39,7 @@ public class Class2
 [DebuggerDisplay("{{|#1:Id|#1}.Length}")]
 public class Class3
 {
-    [OptionalJsonField("")]
+    [OptionalProperty]
     public string Id { get; set; }
 };
 

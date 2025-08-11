@@ -77,7 +77,7 @@ public class PreventOptionalFieldsAnalyzer : DiagnosticAnalyzer
 
             var hasOptionalJsonFieldAttribute = propertySymbol
                                                     .GetAttributes()
-                                                    .Any(attr => attr.AttributeClass?.Name == "OptionalJsonFieldAttribute");
+                                                    .Any(attr => attr.AttributeClass?.Name == "OptionalPropertyAttribute");
             
             if (hasOptionalJsonFieldAttribute)
             {
