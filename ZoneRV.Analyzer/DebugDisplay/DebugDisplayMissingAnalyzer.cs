@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -42,6 +43,14 @@ public class DebugDisplayMissingAnalyzer : DiagnosticAnalyzer
         
         // Check if the node is a class declaration
         var classDeclaration = (ClassDeclarationSyntax)context.Node;
+        
+        // ignore interfaces
+        if(context.Node is InterfaceDeclarationSyntax)
+            return;
+        
+        // Ignore abstract classes
+        if(classDeclaration.Modifiers.Any(x => x.IsKind(SyntaxKind.AbstractKeyword)))
+            return;
 
         var name = Utils.GetNamespaceOfClass(classDeclaration);
 

@@ -5,7 +5,7 @@ using Xunit;
 using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.AnalyzerVerifier<
     ZoneRV.Analyzer.DebugDisplay.EmptyDebugDisplayAnalyzer>;
 
-namespace ZoneRV.Analyzer.Tests;
+namespace ZoneRV.Analyzer.Tests.DebugDisplayTests;
 
 public class DebugEmptyTests
 {

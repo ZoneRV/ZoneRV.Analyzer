@@ -5,7 +5,7 @@ using Xunit;
 using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.AnalyzerVerifier<
     ZoneRV.Analyzer.DebugDisplay.DebugDisplayMissingAnalyzer>;
 
-namespace ZoneRV.Analyzer.Tests;
+namespace ZoneRV.Analyzer.Tests.DebugDisplayTests;
 
 public class DebugDisplayMissingTests
 {
@@ -44,5 +44,35 @@ public class DebugDisplayMissingTests
             .WithArguments("Class1");
         
         await Verifier.VerifyAnalyzerAsync(text, expected);
+    }
+    
+    [Fact]
+    public async Task IgnoreInterfaces()
+    {
+        const string text = @"
+                            namespace ZoneRV.Models
+                            {
+                            public interface IClass1
+                            {
+                            }
+                            }
+                            ";
+        
+        await Verifier.VerifyAnalyzerAsync(text);
+    }
+    
+    [Fact]
+    public async Task IgnoreAbstractClass()
+    {
+        const string text = @"
+                            namespace ZoneRV.Models
+                            {
+                            public abstract class Class1
+                            {
+                            }
+                            }
+                            ";
+        
+        await Verifier.VerifyAnalyzerAsync(text);
     }
 }

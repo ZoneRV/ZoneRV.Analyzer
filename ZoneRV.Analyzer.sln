@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoneRV.Analyzer.Tests", "Zo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoneRV.Analyzer", "ZoneRV.Analyzer\ZoneRV.Analyzer.csproj", "{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoneRV.Analyzer.Samples", "ZoneRV.Analyzer.Samples\ZoneRV.Analyzer.Samples.csproj", "{F209F0EF-8489-498F-84B2-BA7CDEC74B77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EA25271-D9D5-48C3-A1C3-C24BE3239D67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F209F0EF-8489-498F-84B2-BA7CDEC74B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F209F0EF-8489-498F-84B2-BA7CDEC74B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F209F0EF-8489-498F-84B2-BA7CDEC74B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F209F0EF-8489-498F-84B2-BA7CDEC74B77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

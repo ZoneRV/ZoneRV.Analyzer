@@ -6,7 +6,7 @@ using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<
     ZoneRV.Analyzer.DebugDisplay.DebugDisplayMissingAnalyzer,
     ZoneRV.Analyzer.DebugDisplay.AddDebugDisplayFixProvider>;
 
-namespace ZoneRV.Analyzer.Tests;
+namespace ZoneRV.Analyzer.Tests.DebugDisplayTests;
 
 public class DebugDisplayFixTests
 {

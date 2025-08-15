@@ -7,7 +7,7 @@ using Xunit;
 using ZoneRV.Analyzer.DebugDisplay;
 using ZoneRV.Core.Models.Sales;
 
-namespace ZoneRV.Analyzer.Tests;
+namespace ZoneRV.Analyzer.Tests.DebugDisplayTests;
 
 public class DebugDisplayWithOptionalFieldTests
 {
