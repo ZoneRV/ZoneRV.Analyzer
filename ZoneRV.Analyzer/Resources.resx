@@ -72,4 +72,10 @@
     <data name="ZRV0007MessageFormat" xml:space="preserve">
         <value>'{0}' should not be used in DebugDisplay as it is optional</value>
     </data>
+    <data name="ZRV0008Title" xml:space="preserve">
+        <value>Use 'is' pattern for null checks</value>
+    </data>
+    <data name="ZRV0008MessageFormat" xml:space="preserve">
+        <value>Consider using 'is null' or 'is not null' instead of '==' or '!=' for null checks</value>
+    </data>
 </root>

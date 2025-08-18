@@ -220,5 +220,23 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRV0007Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consider using &apos;is null&apos; or &apos;is not null&apos; instead of &apos;==&apos; or &apos;!=&apos; for null checks.
+        /// </summary>
+        internal static string ZRV0008MessageFormat {
+            get {
+                return ResourceManager.GetString("ZRV0008MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &apos;is&apos; pattern for null checks.
+        /// </summary>
+        internal static string ZRV0008Title {
+            get {
+                return ResourceManager.GetString("ZRV0008Title", resourceCulture);
+            }
+        }
     }
 }
