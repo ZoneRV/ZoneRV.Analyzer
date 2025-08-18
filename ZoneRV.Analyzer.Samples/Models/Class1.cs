@@ -22,12 +22,14 @@ public class Class1
     }
 }
 
-public class Class2<T> where T : SalesOrderRequestOptions
+public class Class2
 {
-    protected T Filter { get; set; } = null!;
-
     public void Test()
     {
-        Console.WriteLine(Filter);
+        Class1? class1 = null;
+
+        if (class1 is null)
+            Console.WriteLine("a");
+
     }
 }
