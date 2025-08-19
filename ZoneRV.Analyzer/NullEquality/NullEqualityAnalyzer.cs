@@ -32,6 +32,19 @@ public class NullCheckAnalyzer : DiagnosticAnalyzer
     {
         var binaryExpression = (BinaryExpressionSyntax)context.Node;
         
+        var enclosingLambda = binaryExpression.FirstAncestorOrSelf<LambdaExpressionSyntax>();
+        if (enclosingLambda is not null)
+        {
+            var lambdaTypeInfo = context.SemanticModel.GetTypeInfo(enclosingLambda, context.CancellationToken);
+            if (lambdaTypeInfo.ConvertedType is INamedTypeSymbol converted &&
+                converted.Name == "Expression" &&
+                converted.ContainingNamespace?.ToDisplayString() == "System.Linq.Expressions")
+            {
+                return;
+            }
+        }
+
+        
         // Check if one side is null literal
         var leftIsNull  = IsNullLiteral(binaryExpression.Left);
         var rightIsNull = IsNullLiteral(binaryExpression.Right);

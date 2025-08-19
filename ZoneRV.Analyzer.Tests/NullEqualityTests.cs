@@ -150,6 +150,42 @@ public class Bar
     }
     
     [Fact]
+    public async Task TestIgnoreExpressions()
+    {
+        const string text = @"
+using ZoneRV.Client.Models;
+using ZoneRV.Core.Models;
+using ZoneRV.Core.Models.Sales;
+using System.Linq;
+using System.Linq.Expressions;
+
+namespace ZoneRV.Analyzer.Tests.OptionalFields;
+
+public class Bar
+{
+    private System.Linq.Expressions.Expression<System.Func<object?, object, bool>> isNull => (o, o2) => o != null;
+    private System.Linq.Expressions.Expression<System.Func<object?, bool>> isNull2 => o => o != null;
+}";
+        
+        await new CSharpAnalyzerTest<NullCheckAnalyzer, XUnitVerifier>
+            {
+                TestState =
+                {
+                    Sources             = { text },
+                    ExpectedDiagnostics = {  },
+                    AdditionalReferences =
+                    {
+                        MetadataReference.CreateFromFile(typeof(SalesOrder).Assembly.Location),
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyCollection).Assembly.Location)
+                    },
+                    
+                    ReferenceAssemblies = ReferenceAssemblies.Net.Net90
+                }
+            }
+           .RunAsync();
+    }
+    
+    [Fact]
     public async Task EqualCodeFixTest()
     {
         // Input code that will trigger the analyzer
