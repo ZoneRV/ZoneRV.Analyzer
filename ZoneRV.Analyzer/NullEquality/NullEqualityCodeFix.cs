@@ -50,7 +50,7 @@ public class NullCheckCodeFixProvider : CodeFixProvider
         context.RegisterCodeFix(action, diagnostic);
     }
 
-    private static async Task<Document> ReplaceWithIsPattern(
+    private static Task<Document> ReplaceWithIsPattern(
         Document               document,
         SyntaxNode             root,
         BinaryExpressionSyntax binaryExpression,
@@ -76,7 +76,7 @@ public class NullCheckCodeFixProvider : CodeFixProvider
 
         // Replace the binary expression with the is pattern expression
         var newRoot = root.ReplaceNode(binaryExpression, newExpression);
-        return document.WithSyntaxRoot(newRoot);
+        return Task.FromResult(document.WithSyntaxRoot(newRoot));
     }
 
     private static bool IsNullLiteral(SyntaxNode node)

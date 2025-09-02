@@ -36,13 +36,24 @@ public partial class PoorNameAnalyzer : DiagnosticAnalyzer
         isEnabledByDefault: true,
         description: Resources.ZRV0006Description);
 
-    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => [Rule];
+    private static readonly DiagnosticDescriptor AsyncRule = new DiagnosticDescriptor(
+        "ZRV0009",
+        Resources.ZRV0009Title,
+        Resources.ZRV0009Title,
+        "Naming",
+        DiagnosticSeverity.Warning,
+        isEnabledByDefault: true,
+        description: Resources.ZRV0009Title);
+
+    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => [Rule, AsyncRule];
 
     public override void Initialize(AnalysisContext context)
     {
         context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
         context.EnableConcurrentExecution();
-        
+
+        context.RegisterSyntaxNodeAction(MethodDeclaration, SyntaxKind.MethodDeclaration);
+
         context.RegisterSyntaxNodeAction(AnalyzeVariableDeclaration, SyntaxKind.VariableDeclarator);
         
         context.RegisterSyntaxNodeAction(AnalyzeMemberDeclaration, SyntaxKind.PropertyDeclaration);

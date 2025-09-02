@@ -238,5 +238,14 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRV0008Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async Method names should end with Async.
+        /// </summary>
+        internal static string ZRV0009Title {
+            get {
+                return ResourceManager.GetString("ZRV0009Title", resourceCulture);
+            }
+        }
     }
 }
