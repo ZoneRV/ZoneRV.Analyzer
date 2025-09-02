@@ -7,6 +7,9 @@ using Xunit;
 using ZoneRV.Analyzer.PoorName;
 using ZoneRV.Client.Models;
 using ZoneRV.Core.Models.Sales;
+using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<
+    ZoneRV.Analyzer.PoorName.PoorNameAnalyzer,
+    ZoneRV.Analyzer.PoorName.BadNameAsyncCodeFix>;
 
 namespace ZoneRV.Analyzer.Tests.PoorNameTests;
 
@@ -45,5 +48,97 @@ public class TestClass
                 }
             }
            .RunAsync();
+    }
+
+    [Fact]
+    public async Task CodeFixAppendsAsync()
+    {
+        // Input code that will trigger the analyzer
+        const string TestCode = 
+            @"
+using System.Threading.Tasks;
+
+public class TestClass
+{
+    public async Task {|#0:task|#0}()
+    {
+        await Task.Delay(50);
+    }
+}
+";
+
+        // Expected code after applying the CodeFixProvider
+        const string FixedCode = 
+            @"
+using System.Threading.Tasks;
+
+public class TestClass
+{
+    public async Task taskAsync()
+    {
+        await Task.Delay(50);
+    }
+}
+";
+
+        // Verify the code fix
+        await Verifier.VerifyCodeFixAsync(TestCode, 
+                                          [
+                                              new DiagnosticResult("ZRV0009",
+                                                                   DiagnosticSeverity.Warning)
+                                                 .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
+                                          ], 
+                                          FixedCode);
+    }
+
+    [Fact]
+    public async Task CodeFixAppendsAsyncToOverrides()
+    {
+        // Input code that will trigger the analyzer
+        const string TestCode = 
+            @"
+using System.Threading.Tasks;
+
+public abstract class TestClass
+{
+    public abstract Task task();
+}
+
+public class TestClass2 : TestClass
+{
+    public override async Task {|#0:task|#0}()
+    {
+        await Task.Delay(50);
+    }
+}
+";
+
+        // Expected code after applying the CodeFixProvider
+        const string FixedCode = 
+            @"
+using System.Threading.Tasks;
+
+public abstract class TestClass
+{
+    public abstract Task taskAsync();
+}
+
+public class TestClass2 : TestClass
+{
+    public override async Task taskAsync()
+    {
+        await Task.Delay(50);
+    }
+}
+";
+
+        // Verify the code fix
+        await Verifier.VerifyCodeFixAsync(TestCode, 
+                                          [
+                                              new DiagnosticResult("ZRV0009",
+                                                                   DiagnosticSeverity.Warning)
+                                                 .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
+                                          ], 
+                                          FixedCode);
     }
 }
