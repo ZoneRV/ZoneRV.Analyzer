@@ -25,6 +25,9 @@ public partial class PoorNameAnalyzer
         var isAsyncBySymbol = symbol?.IsAsync == true;
 
         var isAsync = isAsyncBySyntax || isAsyncBySymbol;
+        
+        if(methodDeclarator.Identifier.ValueText.Equals("Main"))
+            return; // Ignore program main
 
         if (!methodDeclarator.Identifier.ValueText.EndsWith("async", StringComparison.OrdinalIgnoreCase) && isAsync)
         {

@@ -16,6 +16,33 @@ namespace ZoneRV.Analyzer.Tests.PoorNameTests;
 public class AsyncNameTests
 {
     [Fact]
+    public async Task IgnoreMain()
+    {
+        const string text = @"
+using System.Threading.Tasks;
+
+public class Program
+{
+    async Task Main()
+    {
+        await Task.Delay(100);
+    }
+}";
+        
+
+        await new CSharpAnalyzerTest<PoorNameAnalyzer, XUnitVerifier>
+            {
+                TestState =
+                {
+                    Sources             = { text },
+                    ExpectedDiagnostics = {},
+                    ReferenceAssemblies = ReferenceAssemblies.Net.Net90
+                }
+            }
+           .RunAsync();
+    }
+    
+    [Fact]
     public async Task CheckVariableNames()
     {
         const string text = @"
