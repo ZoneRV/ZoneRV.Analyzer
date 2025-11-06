@@ -22,7 +22,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-        <Version>1.6.3</Version>
+        <Version>1.7.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -34,10 +34,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0">
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.13.0">
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.14.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <None Update="ZoneRVIcon.png">

@@ -247,5 +247,59 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRV0009Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants from the correct type..
+        /// </summary>
+        internal static string ZRVHS01Description {
+            get {
+                return ResourceManager.GetString("ZRVHS01Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; Constants from are not valid here. Expected constant from &apos;{1}&apos; or string literal..
+        /// </summary>
+        internal static string ZRVHS01MessageFormat {
+            get {
+                return ResourceManager.GetString("ZRVHS01MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid constant usage in parameter.
+        /// </summary>
+        internal static string ZRVHS01Title {
+            get {
+                return ResourceManager.GetString("ZRVHS01Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants over string literals when available..
+        /// </summary>
+        internal static string ZRVHS02Description {
+            get {
+                return ResourceManager.GetString("ZRVHS02Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Constant &apos;{0}.{1}&apos; should be used over string literal &apos;{2}&apos;..
+        /// </summary>
+        internal static string ZRVHS02MessageFormat {
+            get {
+                return ResourceManager.GetString("ZRVHS02MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Constant in parameter over string literal.
+        /// </summary>
+        internal static string ZRVHS02Title {
+            get {
+                return ResourceManager.GetString("ZRVHS02Title", resourceCulture);
+            }
+        }
     }
 }

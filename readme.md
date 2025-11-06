@@ -11,3 +11,10 @@
 | ZRV0007 | Design   | Error    |              | Prevents optional properties from being used in DebuggerDisplays                                                     |
 | ZRV0008 | Style    | Warning  | ✓            | Consider using 'is null' or 'is not null' instead of '==' or '!=' for null checks                                    |
 | ZRV0009 | Naming   | Warning  | ✓            | Async Method names should end with Async                                                                             |
+
+### HubSpot Rules
+
+| Rule ID | Category | Severity | Has Code Fix | Notes                                                                                                                                         |
+|---------|----------|----------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| ZRVHS01 | Usage    | Error    |              | Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants from the correct type.               |
+| ZRVHS02 | Usage    | Warning  | ✓            | Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants over string literals when available. |
