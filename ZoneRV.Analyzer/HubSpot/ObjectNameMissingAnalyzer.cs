@@ -13,7 +13,7 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
     private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(
         "ZRVHS03",
         Resources.ZRVHS03Title,
-        Resources.ZRVHS03Title,
+        Resources.ZRVHS03MessageFormat,
         category: "Design",
         DiagnosticSeverity.Error,
         isEnabledByDefault: true
@@ -48,7 +48,7 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
             return;
         }
 
-        if (!InheritsFromRequiredClasses(namedTypeSymbol))
+        if (!InheritsFromRequiredClasses(namedTypeSymbol, out var typeName))
         {
             return;
         }
@@ -59,12 +59,12 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
 
         if (!hasObjectNameAttribute)
         {
-            var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(), classSymbol.Name);
+            var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(), typeName);
             context.ReportDiagnostic(diagnostic);
         }
     }
 
-    private bool InheritsFromRequiredClasses(INamedTypeSymbol classSymbol)
+    private bool InheritsFromRequiredClasses(INamedTypeSymbol classSymbol, out string? type)
     {
         var currentType = classSymbol.BaseType;
 
@@ -77,10 +77,9 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
                 var baseNamespace = currentType.ContainingNamespace?.ToDisplayString();
                 if (!string.IsNullOrEmpty(baseNamespace) && baseNamespace.StartsWith("ZoneRV.HubSpot.Models"))
                 {
+                    type = "HubSpotEntityBase";
                     return true;
                 }
-
-                return false;
             }
             currentType = currentType.BaseType;
         }
@@ -93,11 +92,13 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
                 var interfaceNamespace = interfaceType.ContainingNamespace?.ToDisplayString();
                 if (!string.IsNullOrEmpty(interfaceNamespace) && interfaceNamespace.StartsWith("ZoneRV.HubSpot.Models"))
                 {
+                    type =  "IProperties";
                     return true;
                 }
             }
         }
 
+        type = null;
         return false;
     }
 

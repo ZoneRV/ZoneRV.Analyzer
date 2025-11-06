@@ -50,7 +50,8 @@ public class {|#0:MyCompanyClass|#0} : HubSpotEntityBase {}
 
         var expected = new DiagnosticResult("ZRVHS03", DiagnosticSeverity.Error)
                       .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
-                      .WithMessageFormat(Resources.ZRVHS03Title);
+                      .WithMessageFormat(Resources.ZRVHS03MessageFormat)
+                      .WithArguments("HubSpotEntityBase");
 
         await new CSharpAnalyzerTest<ObjectNameMissingAnalyzer, XUnitVerifier>
             {
@@ -79,7 +80,8 @@ public class {|#0:MyCompanyClass|#0} : IProperties {}
 
         var expected = new DiagnosticResult("ZRVHS03", DiagnosticSeverity.Error)
                       .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
-                      .WithMessageFormat(Resources.ZRVHS03Title);
+                      .WithMessageFormat(Resources.ZRVHS03MessageFormat)
+                      .WithArguments("IProperties");
 
         await new CSharpAnalyzerTest<ObjectNameMissingAnalyzer, XUnitVerifier>
             {
@@ -135,7 +137,8 @@ public class {|#0:MyCompanyClass|#0} : ComplexHubSpotBase {}
 
         var expected = new DiagnosticResult("ZRVHS03", DiagnosticSeverity.Error)
                       .WithLocation(0, DiagnosticLocationOptions.InterpretAsMarkupKey)
-                      .WithMessageFormat(Resources.ZRVHS03Title);
+                      .WithMessageFormat(Resources.ZRVHS03MessageFormat)
+                      .WithArguments("HubSpotEntityBase");
 
         await new CSharpAnalyzerTest<ObjectNameMissingAnalyzer, XUnitVerifier>
             {

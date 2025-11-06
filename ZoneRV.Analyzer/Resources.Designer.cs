@@ -303,7 +303,16 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All HubSpotEntityBase must have an ObjectNameAttribute..
+        ///   Looks up a localized string similar to All {0} must have an ObjectNameAttribute..
+        /// </summary>
+        internal static string ZRVHS03MessageFormat {
+            get {
+                return ResourceManager.GetString("ZRVHS03MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All HubSpotEntityBase and IProperties must have an ObjectNameAttribute..
         /// </summary>
         internal static string ZRVHS03Title {
             get {

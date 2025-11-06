@@ -100,6 +100,9 @@
         <value>Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants over string literals when available.</value>
     </data>
     <data name="ZRVHS03Title" xml:space="preserve">
-        <value>All HubSpotEntityBase must have an ObjectNameAttribute.</value>
+        <value>All HubSpotEntityBase and IProperties must have an ObjectNameAttribute.</value>
+    </data>
+    <data name="ZRVHS03MessageFormat" xml:space="preserve">
+        <value>All {0} must have an ObjectNameAttribute.</value>
     </data>
 </root>
