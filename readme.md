@@ -18,3 +18,4 @@
 |---------|----------|----------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | ZRVHS01 | Usage    | Error    |              | Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants from the correct type.               |
 | ZRVHS02 | Usage    | Warning  | ✓            | Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants over string literals when available. |
+| ZRVHS03 | Design   | Error    |              | All HubSpotEntityBase must have an ObjectNameAttribute.                                                                                       |
