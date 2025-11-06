@@ -301,5 +301,14 @@ namespace ZoneRV.Analyzer {
                 return ResourceManager.GetString("ZRVHS02Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All HubSpotEntityBase must have an ObjectNameAttribute..
+        /// </summary>
+        internal static string ZRVHS03Title {
+            get {
+                return ResourceManager.GetString("ZRVHS03Title", resourceCulture);
+            }
+        }
     }
 }

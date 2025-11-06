@@ -146,14 +146,6 @@ public static class AttributeBasedAnalyzerHelpers
 
         return null;
     }
-    
-    /// <summary>
-    /// Checks if a type implements or derives from IProperties or IAssociations interface
-    /// </summary>
-    public static bool InheritsFromIPropertiesOrIAssociations(INamedTypeSymbol type)
-    {
-        return type.AllInterfaces.Any(i => i.Name is "IProperties" or "IAssociations");
-    }
 
     /// <summary>
     /// Gets the parameter for a specific argument in an invocation

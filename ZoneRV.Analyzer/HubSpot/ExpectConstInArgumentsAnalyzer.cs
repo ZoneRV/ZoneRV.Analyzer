@@ -139,7 +139,7 @@ public class ExpectConstInArgumentsAnalyzer : DiagnosticAnalyzer
                 else if (!SymbolEqualityComparer.Default.Equals(sourceType, expectedType))
                 {
                     // Only report diagnostic if the source type implements IProperties or IAssociations
-                    if (AttributeBasedAnalyzerHelpers.InheritsFromIPropertiesOrIAssociations(sourceType))
+                    if (sourceType.AllInterfaces.Any(i => i.Name is "IProperties" or "IAssociations"))
                     {
                         var diagnostic = Diagnostic.Create(
                             Rule1,
