@@ -23,13 +23,8 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
 
     public override void Initialize(AnalysisContext context)
     {
-        // You must call this method to avoid analyzing generated code.
         context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
-
-        // You must call this method to enable the Concurrent Execution.
         context.EnableConcurrentExecution();
-
-        // Subscribe to semantic (compile time) action invocation, e.g. method invocation.
         context.RegisterSyntaxNodeAction(AnalyzeOperation, SyntaxKind.ClassDeclaration);
     }
 
@@ -37,7 +32,6 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
     {
         context.CancellationToken.ThrowIfCancellationRequested();
 
-        // Check if the node is a class declaration
         var classDeclaration = (ClassDeclarationSyntax)context.Node;
 
         // ignore interfaces
@@ -48,45 +42,63 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
         if(classDeclaration.Modifiers.Any(x => x.IsKind(SyntaxKind.AbstractKeyword)))
             return;
 
-        // Check if the class already has a DebuggerDisplayAttribute
         var classSymbol = ModelExtensions.GetDeclaredSymbol(context.SemanticModel, classDeclaration);
         if (classSymbol is not INamedTypeSymbol namedTypeSymbol)
         {
             return;
         }
 
-        // Check if class inherits from HubSpotEntityBase
-        if (!InheritsFromHubSpotEntityBase(namedTypeSymbol))
+        if (!InheritsFromRequiredClasses(namedTypeSymbol))
         {
             return;
         }
 
         var hasObjectNameAttribute = classSymbol
                                     .GetAttributes()
-                                    .Any(attr => attr.AttributeClass?.Name == "ObjectNameAttribute");
+                                    .Any(attr => attr.AttributeClass?.Name is "ObjectNameAttribute");
 
         if (!hasObjectNameAttribute)
         {
-            // The class is missing the DebuggerDisplayAttribute
             var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(), classSymbol.Name);
             context.ReportDiagnostic(diagnostic);
         }
     }
 
-    // Check if the class inherits from HubSpotEntityBase
-    private bool InheritsFromHubSpotEntityBase(INamedTypeSymbol classSymbol)
+    private bool InheritsFromRequiredClasses(INamedTypeSymbol classSymbol)
     {
         var currentType = classSymbol.BaseType;
 
+        // Check base types
         while (currentType != null)
         {
-            if (currentType.Name == "HubSpotEntityBase")
+            if (currentType.Name is "HubSpotEntityBase")
             {
-                return true;
+
+                var baseNamespace = currentType.ContainingNamespace?.ToDisplayString();
+                if (!string.IsNullOrEmpty(baseNamespace) && baseNamespace.StartsWith("ZoneRV.HubSpot.Models"))
+                {
+                    return true;
+                }
+
+                return false;
             }
             currentType = currentType.BaseType;
         }
 
+        // Check interfaces because Roslyn is a pain to program
+        foreach (var interfaceType in classSymbol.AllInterfaces)
+        {
+            if (interfaceType.Name is "IProperties")
+            {
+                var interfaceNamespace = interfaceType.ContainingNamespace?.ToDisplayString();
+                if (!string.IsNullOrEmpty(interfaceNamespace) && interfaceNamespace.StartsWith("ZoneRV.HubSpot.Models"))
+                {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
+
 }
