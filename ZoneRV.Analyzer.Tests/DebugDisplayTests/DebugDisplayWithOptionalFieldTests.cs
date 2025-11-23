@@ -6,6 +6,7 @@ using Microsoft.CodeAnalysis.Testing.Verifiers;
 using Xunit;
 using ZoneRV.Analyzer.DebugDisplay;
 using ZoneRV.Core.Models.Sales;
+using ZoneRV.OptionalProperties.Attributes;
 
 namespace ZoneRV.Analyzer.Tests.DebugDisplayTests;
 
@@ -17,7 +18,7 @@ public class DebugDisplayWithOptionalFieldTests
         const string text = 
 """
 using System.Diagnostics;
-using ZoneRV.Core.Attributes;
+using ZoneRV.OptionalProperties.Attributes;
 
 namespace ZoneRV.Analyzer.Tests.OptionalFields;
 
@@ -64,6 +65,7 @@ public class Class3
                     ReferenceAssemblies = ReferenceAssemblies.Net.Net90,
                     AdditionalReferences = { 
                         MetadataReference.CreateFromFile(typeof(Card).Assembly.Location),
+                        MetadataReference.CreateFromFile(typeof(OptionalPropertyAttribute).Assembly.Location),
                     }
                 }
             }

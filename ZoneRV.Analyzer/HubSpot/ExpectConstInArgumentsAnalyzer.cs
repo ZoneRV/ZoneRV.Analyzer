@@ -15,7 +15,6 @@ namespace ZoneRV.Analyzer.HubSpot;
 public class ExpectConstInArgumentsAnalyzer : DiagnosticAnalyzer
 {
     private const string ExpectConstPropertiesFromAttribute = "ExpectConstPropertiesFromAttribute";
-    private const string ExpectConstAssociationsFromAttribute = "ExpectConstAssociationsFromAttribute";
 
     private static readonly DiagnosticDescriptor Rule1 = new (
         "ZRVHS01",
@@ -62,9 +61,8 @@ public class ExpectConstInArgumentsAnalyzer : DiagnosticAnalyzer
             if (parameter is null)
                 continue;
 
-            var attribute = parameter.GetAttributes().FirstOrDefault(a =>
-                a.AttributeClass?.Name is ExpectConstPropertiesFromAttribute ||
-                a.AttributeClass?.Name is ExpectConstAssociationsFromAttribute);
+            var attribute = parameter.GetAttributes().FirstOrDefault(a => a.AttributeClass?.Name is ExpectConstPropertiesFromAttribute);
+
             if (attribute is null)
                 continue;
 
@@ -91,10 +89,10 @@ public class ExpectConstInArgumentsAnalyzer : DiagnosticAnalyzer
             if (entityType is null)
                 continue;
 
-            // Get the expected Properties or Associations type
+            // Get the expected Properties type
             var expectedType = attribute.AttributeClass?.Name is ExpectConstPropertiesFromAttribute
                 ? AttributeBasedAnalyzerHelpers.GetPropertiesTypeFromEntity(entityType)
-                : AttributeBasedAnalyzerHelpers.GetAssociationsTypeFromEntity(entityType);
+                : null;
 
             if (expectedType is null)
                 continue;
@@ -138,8 +136,8 @@ public class ExpectConstInArgumentsAnalyzer : DiagnosticAnalyzer
                 // Check if the source type matches the expected type
                 else if (!SymbolEqualityComparer.Default.Equals(sourceType, expectedType))
                 {
-                    // Only report diagnostic if the source type implements IProperties or IAssociations
-                    if (sourceType.AllInterfaces.Any(i => i.Name is "IProperties" or "IAssociations"))
+                    // Only report diagnostic if the source type implements IProperties
+                    if (sourceType.AllInterfaces.Any(i => i.Name is "IProperties"))
                     {
                         var diagnostic = Diagnostic.Create(
                             Rule1,

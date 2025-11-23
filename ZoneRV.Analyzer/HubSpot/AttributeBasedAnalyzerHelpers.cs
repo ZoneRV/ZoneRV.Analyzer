@@ -57,23 +57,6 @@ public static class AttributeBasedAnalyzerHelpers
     }
 
     /// <summary>
-    /// Gets the Associations type from an entity (second type argument of HubSpotEntityBase)
-    /// </summary>
-    public static INamedTypeSymbol? GetAssociationsTypeFromEntity(INamedTypeSymbol entityType)
-    {
-        var baseType = entityType.BaseType;
-        while (baseType is not null)
-        {
-            if (baseType.Name is "HubSpotEntityBase" && baseType.TypeArguments.Length >= 2)
-            {
-                return baseType.TypeArguments[1] as INamedTypeSymbol;
-            }
-            baseType = baseType.BaseType;
-        }
-        return null;
-    }
-
-    /// <summary>
     /// Extracts all string values and their source expressions from an argument
     /// Handles literals, const references, arrays, and collection expressions
     /// </summary>

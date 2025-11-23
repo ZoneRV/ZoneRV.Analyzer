@@ -88,7 +88,7 @@
         <value>'{0}' Constants from are not valid here. Expected constant from '{1}' or string literal.</value>
     </data>
     <data name="ZRVHS01Description" xml:space="preserve">
-        <value>Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants from the correct type.</value>
+        <value>Parameters with ExpectConstPropertiesFrom attributes should use constants from the correct type.</value>
     </data>
     <data name="ZRVHS02Title" xml:space="preserve">
         <value>Use Constant in parameter over string literal</value>
@@ -97,12 +97,12 @@
         <value>Constant '{0}.{1}' should be used over string literal '{2}'.</value>
     </data>
     <data name="ZRVHS02Description" xml:space="preserve">
-        <value>Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants over string literals when available.</value>
+        <value>Parameters with ExpectConstPropertiesFrom attributes should use constants over string literals when available.</value>
     </data>
     <data name="ZRVHS03Title" xml:space="preserve">
-        <value>All HubSpotEntityBase and IProperties must have an ObjectNameAttribute.</value>
+        <value>All HubSpotEntityBase and IProperties must have an ObjectTypeAttribute.</value>
     </data>
     <data name="ZRVHS03MessageFormat" xml:space="preserve">
-        <value>All {0} must have an ObjectNameAttribute.</value>
+        <value>All {0} must have an ObjectTypeAttribute.</value>
     </data>
 </root>
