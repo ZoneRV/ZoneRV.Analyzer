@@ -6,6 +6,7 @@ using Microsoft.CodeAnalysis.Testing.Verifiers;
 using Xunit;
 using ZoneRV.Analyzer.HubSpot;
 using ZoneRV.HubSpot.Models.Deal;
+using ZoneRV.HubSpot.Models.Quote;
 
 namespace ZoneRV.Analyzer.Tests.HubSpotTests;
 
@@ -64,7 +65,7 @@ public class MyCompanyClass
 
         var deal = await client.GetAsync<Deal>(
             0,
-            properties: [DealProperties.AmountJson, {|#0:QuoteProperties.ArchivedJson|#0}, ""test""]
+            properties: [DealProperties.AmountJson, {|#0:QuoteProperties.BillingEnabledJson|#0}, ""test""]
         );
     }
 }
@@ -107,7 +108,7 @@ public class MyCompanyClass
     {
         var client = new HubSpotClient(""api"");
 
-        var deal = await client.GetDealForSalesOrderAsync(""salesOrderName"", dealProperties: [DealProperties.AmountJson, {|#0:QuoteProperties.ArchivedJson|#0}]);
+        var deal = await client.GetDealForSalesOrderAsync(""salesOrderName"", properties: [DealProperties.AmountJson, {|#0:QuoteProperties.BillingEnabledJson|#0}]);
     }
 }
 ";
@@ -193,7 +194,7 @@ public class MyCompanyClass
     {
         var client = new HubSpotClient(""api"");
 
-        var deal = await client.GetDealForSalesOrderAsync(""salesOrderName"", dealProperties: [""test"", {|#0:""amount""|#0}]);
+        var deal = await client.GetDealForSalesOrderAsync(""salesOrderName"", properties: [""test"", {|#0:""amount""|#0}]);
     }
 }
 ";

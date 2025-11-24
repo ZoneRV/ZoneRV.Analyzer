@@ -5,6 +5,7 @@ using Microsoft.CodeAnalysis.Testing;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
 using Xunit;
 using ZoneRV.Analyzer.HubSpot;
+using ZoneRV.HubSpot.Enums;
 using ZoneRV.HubSpot.Models.Deal;
 
 namespace ZoneRV.Analyzer.Tests.HubSpotTests;
@@ -17,9 +18,10 @@ public class ObjectNameMissingTests
     {
         const string text = @"
 using ZoneRV.HubSpot.Models;
+using ZoneRV.HubSpot.Enums;
 using ZoneRV.HubSpot.Attributes;
 
-[ObjectName(""Totally legit name"")]
+[ObjectType(HubSpotObjectType.AbandonedCart)]
 public class MyCompanyClass : HubSpotEntityBase {}
 ";
 
