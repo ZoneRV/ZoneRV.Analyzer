@@ -8,7 +8,9 @@
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ASyntaxNode_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FAppData_003FLocal_003FJetBrains_003FShared_003FvAny_003FSourcesCache_003F6fe3ba189cc3358c252f5cb9650691146c01bd48213b5455501af38e123a9d_003FSyntaxNode_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AThrowHelper_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FAppData_003FLocal_003FJetBrains_003FShared_003FvAny_003FSourcesCache_003F6354a7b35d7821629924d3676acd7e67a6f7f94343e0e66ec439aa2bd6ed5_003FThrowHelper_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2db8bf87_002D6f56_002D42aa_002Dbcf9_002Dd8be72f00834/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;ZoneRV.Analyzer.Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Users\LiamThompson\RiderProjects\ZoneRV.Analyzer\ZoneRV.Analyzer.Tests" Presentation="&amp;lt;ZoneRV.Analyzer.Tests&amp;gt;" /&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::6F6B614E-DB00-48D4-AA02-656ED3606ADF::net9.0::ZoneRV.Analyzer.Tests.DebugDisplayTests.DebugDisplayFixTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Miscellaneous_0020Files_002FVexecin/@EntryIndexedValue">False</s:Boolean>

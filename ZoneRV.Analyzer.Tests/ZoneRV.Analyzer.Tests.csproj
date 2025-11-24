@@ -12,8 +12,8 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.XUnit" Version="1.1.2" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
         <PackageReference Include="xunit" Version="2.4.2" />
-        <PackageReference Include="ZoneRV.Client" Version="1.4.1-preview4" />
-        <PackageReference Include="ZoneRV.Core" Version="1.4.1-preview4" />
+        <PackageReference Include="ZoneRV.Client" Version="1.6.6" />
+        <PackageReference Include="ZoneRV.Core" Version="1.6.6" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
@@ -24,7 +24,7 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.14.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="ZoneRV.HubSpotClient" Version="0.7.0-preview2" />
+        <PackageReference Include="ZoneRV.HubSpotClient" Version="0.9.0-preview10" />
     </ItemGroup>
 
     <ItemGroup>

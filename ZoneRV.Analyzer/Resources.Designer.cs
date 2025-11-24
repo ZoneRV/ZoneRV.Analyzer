@@ -249,7 +249,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants from the correct type..
+        ///   Looks up a localized string similar to Parameters with ExpectConstPropertiesFrom attributes should use constants from the correct type..
         /// </summary>
         internal static string ZRVHS01Description {
             get {
@@ -276,7 +276,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parameters with ExpectConstPropertiesFrom or ExpectConstAssociationsFrom attributes should use constants over string literals when available..
+        ///   Looks up a localized string similar to Parameters with ExpectConstPropertiesFrom attributes should use constants over string literals when available..
         /// </summary>
         internal static string ZRVHS02Description {
             get {
@@ -303,7 +303,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All {0} must have an ObjectNameAttribute..
+        ///   Looks up a localized string similar to All {0} must have an ObjectTypeAttribute..
         /// </summary>
         internal static string ZRVHS03MessageFormat {
             get {
@@ -312,7 +312,7 @@ namespace ZoneRV.Analyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All HubSpotEntityBase and IProperties must have an ObjectNameAttribute..
+        ///   Looks up a localized string similar to All HubSpotEntityBase and IProperties must have an ObjectTypeAttribute..
         /// </summary>
         internal static string ZRVHS03Title {
             get {

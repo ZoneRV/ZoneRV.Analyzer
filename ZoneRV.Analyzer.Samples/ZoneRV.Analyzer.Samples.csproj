@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="ZoneRV.HubSpotClient" Version="0.7.0-preview2" />
+      <PackageReference Include="ZoneRV.HubSpotClient" Version="0.9.0-preview10" />
     </ItemGroup>
 
 </Project>

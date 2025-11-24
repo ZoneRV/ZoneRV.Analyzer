@@ -53,11 +53,11 @@ public class ObjectNameMissingAnalyzer : DiagnosticAnalyzer
             return;
         }
 
-        var hasObjectNameAttribute = classSymbol
+        var hasObjectTypeAttribute = classSymbol
                                     .GetAttributes()
-                                    .Any(attr => attr.AttributeClass?.Name is "ObjectNameAttribute");
+                                    .Any(attr => attr.AttributeClass?.Name is "ObjectTypeAttribute");
 
-        if (!hasObjectNameAttribute)
+        if (!hasObjectTypeAttribute)
         {
             var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(), typeName);
             context.ReportDiagnostic(diagnostic);
